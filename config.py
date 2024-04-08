@@ -14,16 +14,16 @@ LOGGING_CONFIG = {
 SCRIPT_PATH = "C:/Users/wills/Documents/GitHub/module-generation/"
 
 INPUT_PATH = f"{SCRIPT_PATH}input/"
+OUTPUT_PATH = f"{SCRIPT_PATH}output/"
+TEMPLATES_PATH = f"{SCRIPT_PATH}templates/"
+LOG_PATH = f"{SCRIPT_PATH}log.txt"
+TOKEN_PATH = f"{SCRIPT_PATH}tokens.txt"
 HANDBOOK_PATH = f"{INPUT_PATH}handbook/"
 PAPERS_PATH = f"{INPUT_PATH}papers/"
-OUTPUT_PATH = "C:/Users/wills/Documents/GitHub/module-generation/output/"
 CLASSES_PATH = f"{OUTPUT_PATH}classes/"
 NOTES_PATH = f"{OUTPUT_PATH}notes/"
 REVISION_PATH = f"{OUTPUT_PATH}revision/"
 SUMMARY_PATH = f"{OUTPUT_PATH}summaries/"
-TEMPLATES_PATH = f"{SCRIPT_PATH}templates/"
-TOKEN_PATH = f"{SCRIPT_PATH}tokens.txt"
-LOG_PATH = f"{SCRIPT_PATH}log.txt"
 
 # Token Cost Configuration
 INPUT_COST = 0.0000005  # $ per token
