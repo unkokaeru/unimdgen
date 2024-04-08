@@ -6,6 +6,16 @@ import re
 from logging import Logger
 from typing import cast
 
+from config import (
+    CLASSES_PATH,
+    HANDBOOK_PATH,
+    INPUT_PATH,
+    NOTES_PATH,
+    PAPERS_PATH,
+    REVISION_PATH,
+    SUMMARY_PATH,
+)
+
 #from warnings import filterwarnings
 from utils import (
     clean_latex,
@@ -33,11 +43,8 @@ def module_data_gen(logger: Logger) -> dict[str, str]:
         "module_notes_outline": None,
     }
 
-    # Path (TEMP)
-    path_to_handbook = "C:/Users/wills/Documents/GitHub/module-generation/input/handbook"
-
     # Convert the PDF to text
-    pdf_text = pdf_to_text(logger, f"{path_to_handbook}/{os.listdir(f"{path_to_handbook}")[0]}")
+    pdf_text = pdf_to_text(logger, f"{HANDBOOK_PATH}/{os.listdir(f"{HANDBOOK_PATH}")[0]}")
     logger.debug("PDF text: %s", pdf_text[:100] + "...")
 
     # Prompt the ChatGPT API to find relevant information NOTE: Add manual mode? (if GPT fails)
@@ -133,7 +140,7 @@ def class_data_gen(logger: Logger, class_name: str, practical: bool) -> dict[str
     # filterwarnings("ignore", category=SyntaxWarning)
 
     # Find the class PDF
-    file_path = f"C:/Users/wills/Documents/GitHub/module-generation/input/{'practicals' if practical else 'tutorials'}/{class_name}"
+    file_path = f"{INPUT_PATH}{'practicals' if practical else 'tutorials'}/{class_name}"
 
     # Convert the PDF to text
     pdf_text = pdf_to_text(logger, file_path)
@@ -202,12 +209,12 @@ def summaryquestions_data_gen(logger: Logger) -> dict[str, str]:
     summary_questions: list[str] = []
 
     # Loop through the classes folder
-    for file in os.listdir("C:/Users/wills/Documents/GitHub/module-generation/output/classes"):
+    for file in os.listdir(CLASSES_PATH):
         # Generate the class hyperlinks
         data["class_hyperlink_list"] += f"- [[{re.sub('.md', '', file)}]]\n"
 
         # Generate the summary questions
-        with open(f"C:/Users/wills/Documents/GitHub/module-generation/output/classes/{file}", "r", encoding='utf-8') as f:
+        with open(f"{CLASSES_PATH}{file}", "r", encoding='utf-8') as f:
             content = f.read()
             questions = re.findall(r"#### Question\n\n(.*?)\n\n#### Solution", content, re.DOTALL)
             summary_questions.extend(questions)
@@ -231,7 +238,7 @@ def tests_data_gen(logger: Logger) -> dict[str, str]:
 
     data["practice_test_hyperlink_list"] = ""
 
-    for file in os.listdir("C:/Users/wills/Documents/GitHub/module-generation/input/papers"):
+    for file in os.listdir({PAPERS_PATH}):
         data["practice_test_hyperlink_list"] += f"- [[{re.sub('.pdf', '', file)}]]\n"
 
     # TODO: Generate predicted papers (that look the exact same) that will also be appended to this list.
@@ -252,9 +259,9 @@ def summarynotes_data_gen(logger: Logger) -> dict[str, str]:
 
     # Find the summary questions markdown file (ends in "Summary Questions.md")
     file_path = None
-    for file in os.listdir("C:/Users/wills/Documents/GitHub/module-generation/output/summaries"):
+    for file in os.listdir(SUMMARY_PATH):
         if file.endswith("Summary Questions.md"):
-            file_path = f"C:/Users/wills/Documents/GitHub/module-generation/output/summaries/{file}"
+            file_path = f"{SUMMARY_PATH}{file}"
             break
 
     # Read the summary questions markdown file
@@ -302,15 +309,15 @@ ANSWER
 
 """
 
-    for file in os.listdir("C:/Users/wills/Documents/GitHub/module-generation/output/notes"):
-        with open(f"C:/Users/wills/Documents/GitHub/module-generation/output/notes/{file}", "r", encoding='utf-8') as f:
+    for file in os.listdir(NOTES_PATH):
+        with open(f"{NOTES_PATH}{file}", "r", encoding='utf-8') as f:
             content = f.read()
             flashcard = prompt_gpt(logger, content, f"You're a program that takes a markdown note and generates a list of flashcards from it, each flashcard containing a question on one side and the answer on the other. Return the list of flashcards in the following format: {card_format}")
             logger.info(f"Flashcard: {flashcard}")
             flashcards += flashcard
 
     data["flashcards"] = flashcards
-    data["anki_flashcards"] = f"[{markdown_to_csv(logger, flashcards, "flashcards")}](C:/Users/wills/Documents/GitHub/module-generation/output/revision/flashcards.csv)"
+    data["anki_flashcards"] = f"[{markdown_to_csv(logger, flashcards, "flashcards")}]({REVISION_PATH}flashcards.csv)"
 
     return data
 
@@ -354,7 +361,7 @@ def notes(logger: Logger, notes_outline: str) -> None:
 
         generate_markdown(
             logger,
-            "C:/Users/wills/Documents/GitHub/module-generation/output/notes/",
+            NOTES_PATH,
             "note_template",
             link,
             {"note_content": content},

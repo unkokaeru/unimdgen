@@ -2,16 +2,16 @@
 
 import os
 import re
-from winsound import Beep
 from logging import Logger, basicConfig, getLogger
 from pathlib import Path
 from typing import Callable, Iterable, cast
+from winsound import Beep
 
 import fitz
 from jinja2 import Environment, FileSystemLoader
 from openai import OpenAI
 
-from config import LOGGING_CONFIG
+from config import LOG_PATH, LOGGING_CONFIG, REVISION_PATH, TEMPLATES_PATH, TOKENS_PATH
 
 
 def markdown_to_csv(logger: Logger, input: str, output_file: str, delimiter=";") -> str:
@@ -36,9 +36,7 @@ def markdown_to_csv(logger: Logger, input: str, output_file: str, delimiter=";")
 
     # Write to CSV
     with open(
-        "C:/Users/wills/Documents/GitHub/module-generation/output/revision/"
-        + output_file
-        + ".csv",
+        REVISION_PATH + output_file + ".csv",
         "w",
         encoding="utf-8",
     ) as file:
@@ -72,9 +70,7 @@ def run_until_satisfied(logger: Logger, func: Callable, *args, **kwargs):
         Beep(1000, 1000)  # Beep at 1000 Hz for 1000 ms
 
         # Log the user input in a text file.
-        with open(
-            "C:/Users/wills/Documents/GitHub/module-generation/log.txt", "a"
-        ) as file:
+        with open(LOG_PATH, "a") as file:
             file.write(user_input + "\n")
 
         # If the user is satisfied, break the loop and stop executing the function.
@@ -240,11 +236,7 @@ def generate_markdown(
     logger.debug(f"Changed working directory to {os.getcwd()}")
 
     # Initialize Jinja2 environment and load template
-    env = Environment(
-        loader=FileSystemLoader(
-            "C:/Users/wills/Documents/GitHub/module-generation/templates"
-        )
-    )
+    env = Environment(loader=FileSystemLoader(TEMPLATES_PATH))
     template = env.get_template(f"{template_title}.md")
     logger.debug("Template loaded successfully.")
 
@@ -353,9 +345,7 @@ def prompt_gpt(
         logger.debug("Response received.")
 
         # Log tokens used in a text file
-        with open(
-            "C:/Users/wills/Documents/GitHub/module-generation/tokens.txt", "a"
-        ) as file:
+        with open(TOKENS_PATH, "a") as file:
             file.write(
                 f"{response.usage.prompt_tokens}, {response.usage.completion_tokens}\n"
             )

@@ -6,12 +6,23 @@ from logging import Logger
 from pathlib import Path
 from time import time
 
+from config import (
+    CLASSES_PATH,
+    INPUT_COST,
+    INPUT_PATH,
+    LOG_PATH,
+    OUTPUT_COST,
+    OUTPUT_PATH,
+    REVISION_PATH,
+    SUMMARY_PATH,
+    TOKEN_PATH,
+)
 from data_gen import (
     class_data_gen,
     flashcards_data_gen,
     module_data_gen,
-    revision_data_gen,
     notes,
+    revision_data_gen,
     summarynotes_data_gen,
     summaryquestions_data_gen,
     tests_data_gen,
@@ -50,7 +61,7 @@ def module_page(logger: Logger) -> dict[str, str]:
 
     generate_markdown(
         logger,
-        "C:/Users/wills/Documents/GitHub/module-generation/output/",
+        OUTPUT_PATH,
         "module_template",
         module_data["module_name"],
         module_data,
@@ -70,12 +81,8 @@ class ClassGenerator:
         """
         self.logger = logger
         self.module_data = module_data
-        self.input_base_path = (
-            "C:/Users/wills/Documents/GitHub/module-generation/input/"
-        )
-        self.output_path = (
-            "C:/Users/wills/Documents/GitHub/module-generation/output/classes/"
-        )
+        self.input_base_path = INPUT_PATH
+        self.output_path = CLASSES_PATH
 
     def generate_all(self, content_type: str) -> None:
         """
@@ -130,7 +137,7 @@ def summaries(logger: Logger, module_data: dict[str, str]) -> None:
 
     generate_markdown(
         logger,
-        "C:/Users/wills/Documents/GitHub/module-generation/output/summaries/",
+        SUMMARY_PATH,
         "module_summary_questions",
         module_data["module_name"] + " Summary Questions",
         summaryquestions_data_gen(logger),
@@ -138,7 +145,7 @@ def summaries(logger: Logger, module_data: dict[str, str]) -> None:
 
     generate_markdown(
         logger,
-        "C:/Users/wills/Documents/GitHub/module-generation/output/summaries/",
+        SUMMARY_PATH,
         "module_practice_tests",
         module_data["module_name"] + " Practice Tests",
         tests_data_gen(logger),
@@ -148,7 +155,7 @@ def summaries(logger: Logger, module_data: dict[str, str]) -> None:
         logger,
         generate_markdown,
         logger,
-        "C:/Users/wills/Documents/GitHub/module-generation/output/summaries/",
+        SUMMARY_PATH,
         "module_summary_notes",
         module_data["module_name"] + " Summary Notes",
         summarynotes_data_gen(logger),
@@ -171,7 +178,7 @@ def revision(logger: Logger, module_data: dict[str, str]) -> None:
         logger,
         generate_markdown,
         logger,
-        "C:/Users/wills/Documents/GitHub/module-generation/output/revision/",
+        REVISION_PATH,
         "module_flashcards",
         module_data["module_name"] + " Flashcards",
         flashcards_data_gen(logger),
@@ -179,7 +186,7 @@ def revision(logger: Logger, module_data: dict[str, str]) -> None:
 
     generate_markdown(
         logger,
-        "C:/Users/wills/Documents/GitHub/module-generation/output/revision/",
+        REVISION_PATH,
         "module_question_based_revision",
         module_data["module_name"] + " Question-Based Revision",
         revision_data_gen(logger, module_data["module_name"]),
@@ -225,7 +232,7 @@ def main() -> None:
     logger.info(f"Time taken: {end_time - start_time:.2f} seconds.")
 
     # Calculate success percentage in input
-    with open("C:/Users/wills/Documents/GitHub/module-generation/log.txt", "r") as f:
+    with open(LOG_PATH, "r") as f:
         log = f.read()
 
     yes = log.count("yes")
@@ -234,10 +241,10 @@ def main() -> None:
     if yes + no != 0:
         logger.info(f"Success percentage: {yes / (yes + no) * 100:.2f}%")
 
-    os.remove("C:/Users/wills/Documents/GitHub/module-generation/log.txt")
+    os.remove(LOG_PATH)
 
     # Calculate cost to run
-    with open("C:/Users/wills/Documents/GitHub/module-generation/tokens.txt", "r") as f:
+    with open(TOKEN_PATH, "r") as f:
         tokens = f.read()
 
     lines = tokens.split("\n")
@@ -246,9 +253,9 @@ def main() -> None:
 
     for line in lines:
         line = line.split(", ")
-        cost += int(line[0]) * 0.0000005 + int(line[1]) * 0.0000015
+        cost += int(line[0]) * INPUT_COST + int(line[1]) * OUTPUT_COST
 
-    os.remove("C:/Users/wills/Documents/GitHub/module-generation/tokens.txt")
+    os.remove(TOKEN_PATH)
 
     logger.info(f"Cost to run: ${cost:.2f}")
 
