@@ -205,7 +205,7 @@ def main() -> None:
     logger = get_logger()
 
     # Change working directory
-    os.chdir(Path(__file__).parent.parent)  # Set the working directory
+    os.chdir(Path(__file__).parent.parent)
 
     # Start timer
     start_time = time()

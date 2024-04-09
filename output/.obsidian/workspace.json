@@ -11,12 +11,8 @@
             "id": "c7022f5618b74eda",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "revision/MTH1004 Linear Algebra Question-Based Revision.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "revision/MTH1004 Linear Algebra Question-Based Revision.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "revision/MTH1004 Linear Algebra Question-Based Revision.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "revision/MTH1004 Linear Algebra Question-Based Revision.md"
-              }
+              "state": {}
             }
           }
         ]
