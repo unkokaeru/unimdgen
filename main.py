@@ -39,6 +39,7 @@ Things to implement:
 - GUI?
 - Question-based revision note generation (cheat sheet).
 - Create predicted papers.
+- Include link description in prompt for note generation.
 
 Things to fix:
 - Code layout, file structure, and naming conventions.
@@ -48,8 +49,6 @@ Things to fix:
 - Change Anki flashcard generation.
 - Refine summary notes prompt.
 - UK spelling.
-
-# TODO: Include link description in prompt for note generation.
 """
 
 
