@@ -134,7 +134,7 @@ def class_data_gen(logger: Logger, class_name: str, practical: bool) -> dict[str
     """
     Generate data for the tutorial and practical class markdown files.
     :param logger: Logger object
-    :param class_name: Name of the practiacl/tutorial class
+    :param class_name: Name of the practical/tutorial class
     :param practical: Whether the class is a practical class
     :return: class questions
     """
