@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "5e6d70b8db2abd9e",
+        "id": "0a336e51587b065f",
         "type": "tabs",
         "children": [
           {
-            "id": "c7022f5618b74eda",
+            "id": "3e8ebd593c360130",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Modules.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Modules.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Modules.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Modules.md"
+              }
             }
           }
         ]
@@ -138,40 +146,43 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c7022f5618b74eda",
+  "active": "3e8ebd593c360130",
   "lastOpenFiles": [
-    "MTH1004 Linear Algebra.md",
-    "revision/MTH1004 Linear Algebra Flashcards.md",
-    "Untitled.md",
-    "revision/MTH1004 Linear Algebra Question-Based Revision.md",
-    "flashcards.md",
-    "revision/flashcards.csv",
-    "revision",
-    "notes/Quadratic Forms.md",
-    "notes/Properties of Orthogonal Matrices.md",
-    "notes/Orthogonal Bases.md",
-    "notes/Change of Basis Matrix.md",
-    "notes/Linear Maps.md",
-    "notes/Eigenspaces.md",
-    "notes/Eigenvalue Equation.md",
-    "notes/Space Dimension.md",
-    "notes/Basis Vectors.md",
-    "notes/Vector Space Properties.md",
-    "notes/Rank of a Matrix.md",
-    "notes/Inverse Matrix.md",
-    "notes/Matrix Multiplication.md",
-    "notes/Matrix Addition and Subtraction.md",
-    "notes/Matrix Form.md",
-    "notes/Gaussian Elimination.md",
-    "notes/Systems of Equations.md",
-    "notes/Vector Length.md",
-    "notes/Angle between Vectors.md",
-    "notes/Dot Product.md",
-    "notes/Magnitude and Direction.md",
-    "notes",
-    "summaries",
-    "classes",
-    "del",
-    "del/classes"
+    "MTH1003 Ideas of Mathematical Proof/MTH1003 Ideas of Mathematical Proof.md",
+    "Modules.md",
+    "MTH1005 Probability and Statistics/revision/MTH1005 Probability and Statistics Question-Based Revision.md",
+    "MTH1005 Probability and Statistics/revision/MTH1005 Probability and Statistics Flashcards.md",
+    "MTH1005 Probability and Statistics/MTH1005 Probability and Statistics.md",
+    "MTH1005 Probability and Statistics/revision/flashcards.csv",
+    "MTH1005 Probability and Statistics/revision",
+    "MTH1005 Probability and Statistics/notes/Introductory Concepts.md",
+    "MTH1005 Probability and Statistics/notes/Random Walks.md",
+    "MTH1005 Probability and Statistics/notes/Markov Chains.md",
+    "MTH1005 Probability and Statistics/notes/Normal Mean and Variance, Population Proportion.md",
+    "MTH1005 Probability and Statistics/notes/Single Sample Procedures.md",
+    "MTH1005 Probability and Statistics/notes/Confidence Intervals.md",
+    "MTH1005 Probability and Statistics/notes/Probability Models for Data.md",
+    "MTH1005 Probability and Statistics/notes/Random Sampling.md",
+    "MTH1005 Probability and Statistics/notes/Populations and Samples.md",
+    "MTH1005 Probability and Statistics/notes/Exponential Distribution.md",
+    "MTH1005 Probability and Statistics/notes/Normal Distribution.md",
+    "MTH1005 Probability and Statistics/notes/Poisson Distribution.md",
+    "MTH1005 Probability and Statistics/notes/Geometric Distribution.md",
+    "MTH1005 Probability and Statistics/notes/Binomial Distribution.md",
+    "MTH1005 Probability and Statistics/notes/Medians, Quantiles, and Statistical Tables.md",
+    "MTH1005 Probability and Statistics/notes/Conditional Distributions and Expectation.md",
+    "MTH1005 Probability and Statistics/notes/Covariance and Correlation.md",
+    "MTH1005 Probability and Statistics/notes/Expectation and Variance.md",
+    "MTH1005 Probability and Statistics/notes/Density Functions.md",
+    "MTH1005 Probability and Statistics/notes/Distribution Functions.md",
+    "MTH1005 Probability and Statistics/notes/Discrete and Continuous Random Variables.md",
+    "MTH1005 Probability and Statistics/notes",
+    "MTH1005 Probability and Statistics/summaries",
+    "MTH1005 Probability and Statistics/classes",
+    "MTH1005 Probability and Statistics",
+    "MTH1004 Linear Algebra/revision/flashcards.csv",
+    "MTH1004 Linear Algebra/revision",
+    "MTH1004 Linear Algebra/notes",
+    "MTH1004 Linear Algebra/summaries"
   ]
 }

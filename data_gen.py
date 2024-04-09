@@ -14,6 +14,7 @@ from config import (
     PAPERS_PATH,
     REVISION_PATH,
     SUMMARY_PATH,
+    UNI_DOMAIN,
 )
 
 #from warnings import filterwarnings
@@ -21,6 +22,7 @@ from utils import (
     clean_latex,
     generate_markdown,
     markdown_to_csv,
+    name_to_email,
     pdf_to_text,
     prompt_gpt,
     run_until_satisfied,
@@ -42,6 +44,11 @@ def module_data_gen(logger: Logger) -> dict[str, str]:
         "learning_outcomes": None,
         "module_notes_outline": None,
     }
+
+    # Check the existence of the handbook
+    if os.listdir(f"{HANDBOOK_PATH}") == []:
+        logger.error("No handbook found.")
+        return data
 
     # Convert the PDF to text
     pdf_text = pdf_to_text(logger, f"{HANDBOOK_PATH}/{os.listdir(f"{HANDBOOK_PATH}")[0]}")
@@ -66,7 +73,7 @@ def module_data_gen(logger: Logger) -> dict[str, str]:
     # Extract and format the relevant information from the GPT response
     module_name = gpt_response_list[0]
     name = gpt_response_list[1]
-    email = gpt_response_list[2]
+    email = name_to_email(logger, name, UNI_DOMAIN) if gpt_response_list[2] == "None" else gpt_response_list[2]
     assessment_weighting_percentages = gpt_response_list[3] if isinstance(gpt_response_list[3], str) else "- [ ] " + "\n- [ ] ".join([i for i in gpt_response_list[3]])
     learning_outcomes = gpt_response_list[4] if isinstance(gpt_response_list[4], str) else "- [ ] " + "\n- [ ] ".join([re.sub(r'LO[1-9]', r'**\g<0>**', i) for i in gpt_response_list[4]])
     module_notes_outline = gpt_response_list[5] if isinstance(gpt_response_list[5], str) else "- " + "\n- ".join([i for i in gpt_response_list[5]])
@@ -238,7 +245,11 @@ def tests_data_gen(logger: Logger) -> dict[str, str]:
 
     data["practice_test_hyperlink_list"] = ""
 
-    for file in os.listdir({PAPERS_PATH}):
+    if os.listdir(PAPERS_PATH) == []:
+        logger.error("No papers found.")
+        return data
+    
+    for file in os.listdir(PAPERS_PATH):
         data["practice_test_hyperlink_list"] += f"- [[{re.sub('.pdf', '', file)}]]\n"
 
     # TODO: Generate predicted papers (that look the exact same) that will also be appended to this list.
@@ -265,7 +276,7 @@ def summarynotes_data_gen(logger: Logger) -> dict[str, str]:
             break
 
     # Read the summary questions markdown file
-    with open(file_path, "r") as f:
+    with open(file_path, "r", encoding='utf-8') as f:
         content = f.read()
 
     # Generate notes that explain how to solve every type of question in the summary questions
@@ -291,7 +302,7 @@ def flashcards_data_gen(logger: Logger) -> dict[str, str]:
 
     data = {
         "flashcards": None,
-        "anki_flashcards": "**TODO**: Implement porting to Anki.",
+        "anki_flashcards": None,
     }
 
     # Loop through each note markdown file and generate flashcards
@@ -354,10 +365,10 @@ def notes(logger: Logger, notes_outline: str) -> None:
     logger.info(f"Markdown links: {markdown_links}")
 
     # Generate a note for each markdown link
-    note_prompt = "You're a program that takes a topic and generates a detailed markdown note aimed at undergraduate mathematicians, including all the information that would be required to understand the topic. This should include definitions, explanations, examples, and any other relevant information - seamlessly intertwine historical context and real-life examples. Finish with three exam questions to test the reader. Return the generated note in markdown format."
+    note_prompt = "You're a program that takes a topic and generates a detailed markdown note aimed at undergraduate mathematicians, including all the information that would be required to understand the topic. This should include definitions, explanations, examples, and any other relevant information - seamlessly intertwine historical context and real-life examples. Finish with three exam questions to test the reader. Return the generated note in markdown format, using LaTeX when appropriate."
     
     def gen_note(link: str) -> str:
-        content = clean_latex(logger, prompt_gpt(logger, link, note_prompt), False)
+        content = clean_latex(logger, prompt_gpt(logger, link, note_prompt), False) # TODO: Include link description in prompt
 
         generate_markdown(
             logger,

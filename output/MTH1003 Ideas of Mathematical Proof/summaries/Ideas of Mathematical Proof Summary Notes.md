@@ -1,0 +1,28 @@
+- To prove that $5n + 3$ is divisible by $4$ for all positive integers $n$:
+    - **Basis step**: Check for $n=1$.
+    - **Inductive step**: Assume true for $n=k$, show true for $n=k+1$.
+- To prove that $11n - 4n$ is divisible by $7$ for all positive integers $n$:
+    - **Basis step**: Verify for $n=1$.
+    - **Inductive step**: Assume true for $n=k$, prove for $n=k+1$.
+- For the formula $1 + 3 + 5 + \ldots + (2n - 1)$ and induction proof:
+    - **Guess the formula** as $n^2$ based on the sequence.
+    - **Basis step**: Check for $n=1$.
+    - **Inductive step**: Assume true for $n=k$, prove for $n=k+1$.
+- To prove the given equation using mathematical induction:
+    - **Basis step**: Check for $n=1$.
+    - **Inductive step**: Assume true for $n=k$, prove for $n=k+1$.
+- To prove $n! > 3n$ for $n\geq 7$ using induction:
+    - **Basis step**: Check for $n=7$.
+    - **Inductive step**: Assume true for $n=k$, prove for $n=k+1$.
+- For the incorrect proof that all men are bald using mathematical induction:
+    - **Analyzing the mistake**: The base case may be incorrectly assumed.
+    - **Correct approach**: When using induction, ensure the base case and inductive step are valid.
+- To prove the given equation regarding geometric and arithmetic series by induction:
+    - **Basis step**: Verify for $n=1$.
+    - **Inductive step**: Assume true for $n=k$, prove for $n=k+1$.
+- To prove $n^3 < 2^n$ for $n\geq 10$ using induction:
+    - **Basis step**: Check for $n=10$.
+    - **Inductive step**: Assume true for $n=k$, prove for $n=k+1$.
+- For the sequence $a_n = 3^{n-1} + 1$ and proof by induction:
+    - **Basis step**: Check the base case.
+    - **Inductive step**: Assume true for $n=k$, prove for $n=k+1$.

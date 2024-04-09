@@ -14,14 +14,21 @@ LOGGING_CONFIG = {
 INPUT_COST = 0.0000005  # $ per token
 OUTPUT_COST = 0.0000015  # $ per token
 
+# API Configuration (free API, so no need to change this)
+EXCHANGE_API_KEY = "d22354212680daf1d45a64d1"
+
+# Domain Configuration
+UNI_DOMAIN = "lincoln.ac.uk"
+
 # Path Configuration
 SCRIPT_PATH = "C:/Users/wills/Documents/GitHub/module-generation/"
+MODULE_FOLDER = "MTH1005 Probability and Statistics"
 
-INPUT_PATH = f"{SCRIPT_PATH}input/"
-OUTPUT_PATH = f"{SCRIPT_PATH}output/"
+INPUT_PATH = f"{SCRIPT_PATH}input/{MODULE_FOLDER}/"
+OUTPUT_PATH = f"{SCRIPT_PATH}output/{MODULE_FOLDER}/"
 TEMPLATES_PATH = f"{SCRIPT_PATH}templates/"
 LOG_PATH = f"{SCRIPT_PATH}log.txt"
-TOKEN_PATH = f"{SCRIPT_PATH}tokens.txt"
+TOKENS_PATH = f"{SCRIPT_PATH}tokens.txt"
 HANDBOOK_PATH = f"{INPUT_PATH}handbook/"
 PAPERS_PATH = f"{INPUT_PATH}papers/"
 CLASSES_PATH = f"{OUTPUT_PATH}classes/"

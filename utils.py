@@ -8,10 +8,64 @@ from typing import Callable, Iterable, cast
 from winsound import Beep
 
 import fitz
+import requests
 from jinja2 import Environment, FileSystemLoader
 from openai import OpenAI
 
-from config import LOG_PATH, LOGGING_CONFIG, REVISION_PATH, TEMPLATES_PATH, TOKENS_PATH
+from config import (
+    EXCHANGE_API_KEY,
+    LOG_PATH,
+    LOGGING_CONFIG,
+    REVISION_PATH,
+    TEMPLATES_PATH,
+    TOKENS_PATH,
+)
+
+
+def currency_converter(
+    logger: Logger, amount: float, from_currency: str, to_currency: str
+) -> float:
+    """
+    Converts an amount from one currency to another.
+    :param logger: The logger object.
+    :param amount: The amount to convert.
+    :param from_currency: The currency to convert from.
+    :param to_currency: The currency to convert to.
+    :return: The converted amount.
+    """
+
+    url = (
+        f"https://api.exchangerate-api.com/v6/{EXCHANGE_API_KEY}/latest/{from_currency}"
+    )
+
+    response = requests.get(url)
+    data = response.json()
+    exchange_rate = data["conversion_rates"][to_currency]
+
+    converted_amount = amount * exchange_rate
+
+    return converted_amount
+
+
+def name_to_email(logger: Logger, name: str, email_domain: str) -> str:
+    """
+    Converts a name to an email address.
+    :param logger: The logger object.
+    :param name: The name to convert.
+    :param email_domain: The email domain to use.
+    :return: The email address.
+    """
+
+    parts = name.split()
+
+    if len(parts) == 2:
+        first_name, last_name = parts
+        # Construct the email
+        email = f"{first_name[0]}{last_name}@{email_domain}".lower()
+    else:
+        raise ValueError("Name must be in the format 'First Last'")
+
+    return email
 
 
 def markdown_to_csv(logger: Logger, input: str, output_file: str, delimiter=";") -> str:
@@ -35,8 +89,11 @@ def markdown_to_csv(logger: Logger, input: str, output_file: str, delimiter=";")
             qa_pairs.append((question_match.group(1), answer_match.group(1)))
 
     # Write to CSV
+    csv_path = REVISION_PATH + output_file + ".csv"
+    os.makedirs(os.path.dirname(csv_path), exist_ok=True)
+
     with open(
-        REVISION_PATH + output_file + ".csv",
+        csv_path,
         "w",
         encoding="utf-8",
     ) as file:
@@ -64,10 +121,10 @@ def run_until_satisfied(logger: Logger, func: Callable, *args, **kwargs):
         logger.info(f"Function ({func.__name__}) output: {result}")
 
         # Ask the user if they are satisfied with the output.
+        Beep(1000, 1000)  # Beep at 1000 Hz for 1000 ms
         user_input = (
             input("Are you satisfied with the output? (yes/no): ").strip().lower()
         )
-        Beep(1000, 1000)  # Beep at 1000 Hz for 1000 ms
 
         # Log the user input in a text file.
         with open(LOG_PATH, "a") as file:
