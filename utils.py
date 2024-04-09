@@ -9,6 +9,7 @@ from winsound import Beep
 
 import fitz
 import requests
+from gtts import gTTS
 from jinja2 import Environment, FileSystemLoader
 from openai import OpenAI
 
@@ -118,10 +119,16 @@ def run_until_satisfied(logger: Logger, func: Callable, *args, **kwargs):
         result = func(*args, **kwargs)
 
         # Display the result to the user.
-        logger.info(f"Function ({func.__name__}) output: {result}")
+        result_display = f"Function ({func.__name__}) output: {result}"
+        logger.info(result_display)
 
         # Ask the user if they are satisfied with the output.
         Beep(1000, 1000)  # Beep at 1000 Hz for 1000 ms
+        audio_obj = gTTS(text=result_display, lang="en", slow=False)
+        audio_obj.save("output.mp3")
+        os.system("start output.mp3")
+        os.remove("output.mp3")
+
         user_input = (
             input("Are you satisfied with the output? (yes/no): ").strip().lower()
         )
