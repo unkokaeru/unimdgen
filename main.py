@@ -36,7 +36,6 @@ Things to implement:
     (by reading each lecture slides,
     tagging them with their content,
     then organising into the main contents).
-- Markdown practice test conversion.
 - GUI?
 - TTS notice for input opposed to a beep.
 - Question-based revision note generation (cheat sheet).
