@@ -37,7 +37,6 @@ Things to implement:
     tagging them with their content,
     then organising into the main contents).
 - GUI?
-- TTS notice for input opposed to a beep.
 - Question-based revision note generation (cheat sheet).
 - Create predicted papers.
 
