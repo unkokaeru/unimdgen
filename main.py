@@ -245,6 +245,9 @@ def main() -> None:
     # Generate summary markdown files
     summaries(logger, module_data)
 
+    # Generate paper markdown files
+    classes.generate_all("paper")
+
     # Generate notes markdown files
     notes(logger, module_data["module_notes_outline"])
 
