@@ -327,7 +327,7 @@ ANSWER
             logger.info(f"Flashcard: {flashcard}")
             flashcards += flashcard
 
-    data["flashcards"] = flashcards
+    data["flashcards"] = flashcards.replace("---###", r"---\n\n###")
     data["anki_flashcards"] = f"[{markdown_to_csv(logger, flashcards, "flashcards")}]({REVISION_PATH}flashcards.csv)"
 
     return data

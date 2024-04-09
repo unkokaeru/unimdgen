@@ -44,7 +44,7 @@ Things to fix:
 - Code layout, file structure, and naming conventions.
 - Documentation (update).
 - Further GPT data generation cleaning.
-- Flashcard tweaking & user checking: "---### -> ---\n\n###".
+- Flashcard tweaking & user checking.
 - Change Anki flashcard generation.
 - Refine summary notes prompt.
 - UK spelling.
