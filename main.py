@@ -13,6 +13,7 @@ from config import (
     LOG_PATH,
     OUTPUT_COST,
     OUTPUT_PATH,
+    PAPERS_PATH,
     REVISION_PATH,
     SUMMARY_PATH,
     TOKENS_PATH,
@@ -27,7 +28,7 @@ from data_gen import (
     summaryquestions_data_gen,
     tests_data_gen,
 )
-from utils import generate_markdown, get_logger, run_until_satisfied, currency_converter
+from utils import currency_converter, generate_markdown, get_logger, run_until_satisfied
 
 """
 Things to implement:
@@ -104,22 +105,23 @@ class ClassGenerator:
         self.logger = logger
         self.module_data = module_data
         self.input_base_path = INPUT_PATH
-        self.output_path = CLASSES_PATH
+        self.class_output_path = CLASSES_PATH
+        self.paper_output_path = PAPERS_PATH
 
     def generate_all(self, content_type: str) -> None:
         """
-        Generate markdown files for the specified content type (tutorial or practical).
-        :param content_type: A string specifying the content type ('tutorial' or 'practical').
+        Generate markdown files for the specified content type (tutorial, practical, or paper).
+        :param content_type: A string specifying the content type ('tutorial', 'practical', or 'paper').
         :return: None
         """
         content_path = os.path.join(self.input_base_path, f"{content_type}s")
-        self.logger.info(f"Generating {content_type} class markdown files...")
+        self.logger.info(f"Generating {content_type} {"(exam)" if content_path == "paper" else "class"} markdown files...")
 
         def generate(item: str) -> None:
             attempts, item_questions = 0, None
             while attempts < 3:
                 item_questions = class_data_gen(
-                    self.logger, item, practical=content_type == "practical"
+                    self.logger, item, content_type
                 )
                 if item_questions["class_questions"] is not None:
                     break
@@ -128,12 +130,12 @@ class ClassGenerator:
 
             if item_questions:
                 file_title = (
-                    f"{self.module_data['module_name']} {content_type.capitalize()} Class "
+                    f"{self.module_data['module_name']} {"Exam" if content_type == "paper" else f"{content_type.capitalize()} Class"} "
                     + re.sub(".pdf", "", item)
                 )
                 generate_markdown(
                     self.logger,
-                    self.output_path,
+                    self.paper_output_path if content_type == "paper" else self.class_output_path,
                     "class_template",
                     file_title,
                     item_questions,
@@ -143,7 +145,7 @@ class ClassGenerator:
             run_until_satisfied(self.logger, generate, item)
 
         self.logger.info(
-            f"{content_type.capitalize()} class markdown files generated successfully."
+            f"{content_type.capitalize()} {"(exam)" if content_path == "paper" else "class"} markdown files generated successfully."
         )
 
 

@@ -130,12 +130,12 @@ Ensure that the final result is in the exact same format as above.
     return data
 
 
-def class_data_gen(logger: Logger, class_name: str, practical: bool) -> dict[str, str]:
+def class_data_gen(logger: Logger, class_name: str, content_type: str) -> dict[str, str]:
     """
     Generate data for the tutorial and practical class markdown files.
     :param logger: Logger object
     :param class_name: Name of the practical/tutorial class
-    :param practical: Whether the class is a practical class
+    :param content_type: Type of content (tutorial, practical, or paper)
     :return: class questions
     """
 
@@ -147,7 +147,7 @@ def class_data_gen(logger: Logger, class_name: str, practical: bool) -> dict[str
     # filterwarnings("ignore", category=SyntaxWarning)
 
     # Find the class PDF
-    file_path = f"{INPUT_PATH}{'practicals' if practical else 'tutorials'}/{class_name}"
+    file_path = f"{INPUT_PATH}{content_type}s/{class_name}"
 
     # Convert the PDF to text
     pdf_text = pdf_to_text(logger, file_path)
