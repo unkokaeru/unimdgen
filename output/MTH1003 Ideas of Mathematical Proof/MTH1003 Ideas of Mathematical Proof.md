@@ -11,10 +11,10 @@ Module Co-ordinator: Evgeny Khukhro (evgeny.khukhro@lincoln.ac.uk)
 
 ## Learning Outcomes
 
-- [ ] Formulate and use standard set-theoretic and logical notation
-- [ ] Construct proofs by contradiction and by mathematical induction
-- [ ] Formulate the definitions of various types of mappings, prove standard results on cardinalities
-- [ ] State the rigorous definition of a limit of a sequence or a function; find limits by using their arithmetic properties
+- [x] Formulate and use standard set-theoretic and logical notation
+- [x] Construct proofs by contradiction and by mathematical induction
+- [x] Formulate the definitions of various types of mappings, prove standard results on cardinalities
+- [x] State the rigorous definition of a limit of a sequence or a function; find limits by using their arithmetic properties
 
 ## Summary Content
 

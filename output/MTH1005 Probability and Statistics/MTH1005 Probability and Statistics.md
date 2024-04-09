@@ -5,18 +5,18 @@ Module Co-ordinator: Danilo Roccatano (droccatano@lincoln.ac.uk)
 ## Course Components
 
 - [ ] In-class Test (20%)
-- [ ] Four Weekly Assignments on BB (20%)
+- [x] Four Weekly Assignments on BB (20%)
 - [ ] Final Exam (60%)
 
 *Current percentage (rounded up):* 0%
 
 ## Learning Outcomes
 
-- [ ] The expected value and variance of well-known distributions (binomial, Poisson, geometric, exponential and normal distributions)
-- [ ] Primary statistical concepts including independence and conditional probability and apply them to practical problems
-- [ ] Apply confidence intervals for hypothesis testing and perform single sample procedures
-- [ ] Basic properties of Markov chains and use them in simple examples
-- [ ] How to analyse data using Python
+- [x] The expected value and variance of well-known distributions (binomial, Poisson, geometric, exponential and normal distributions)
+- [x] Primary statistical concepts including independence and conditional probability and apply them to practical problems
+- [x] Apply confidence intervals for hypothesis testing and perform single sample procedures
+- [x] Basic properties of Markov chains and use them in simple examples
+- [x] How to analyse data using Python
 
 ## Summary Content
 

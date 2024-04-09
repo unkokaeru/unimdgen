@@ -11,11 +11,11 @@ Module Co-ordinator: Dr Helen Christodoulidi (hchristodoulidi@lincoln.ac.uk)
 
 ## Learning Outcomes
 
-- [ ] **LO1** Formulate the connection between linear transformations and their matrices in different bases.
-- [ ] **LO2** Find orthogonal bases and complements; find inverses of orthogonal matrices.
-- [ ] **LO3** Find kernel, range, rank and nullity of a linear transformation.
-- [ ] **LO4** Find eigenvalues and eigenvectors; apply them to diagonalization of matrices and finding functions of linear mappings and matrices.
-- [ ] **LO5** Diagonalize quadratic forms by using orthogonal diagonalization of symmetric matrices
+- [x] **LO1** Formulate the connection between linear transformations and their matrices in different bases.
+- [x] **LO2** Find orthogonal bases and complements; find inverses of orthogonal matrices.
+- [x] **LO3** Find kernel, range, rank and nullity of a linear transformation.
+- [x] **LO4** Find eigenvalues and eigenvectors; apply them to diagonalization of matrices and finding functions of linear mappings and matrices.
+- [x] **LO5** Diagonalize quadratic forms by using orthogonal diagonalization of symmetric matrices
 
 ## Summary Content
 
