@@ -39,6 +39,7 @@ Things to implement:
 - GUI?
 - TTS notice for input opposed to a beep.
 - Question-based revision note generation (cheat sheet).
+- Create predicted papers.
 
 Things to fix:
 - Code layout, file structure, and naming conventions.
