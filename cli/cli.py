@@ -54,7 +54,10 @@ def interface(logger: Logger) -> None:
     """
 
     # Generate the main module page
-    module_data = ask_to_run(logger, run_until_satisfied, logger, module_page(logger))
+    def module_gen():
+        run_until_satisfied(logger, module_page, logger)
+
+    module_data = ask_to_run(logger, module_gen)
 
     # Generate the class pages
     classes = ClassGenerator(logger, module_data)
