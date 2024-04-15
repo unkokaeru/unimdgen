@@ -14,7 +14,7 @@ from src.content.summary_generator import summaries
 from src.utilities.file_utilities import fetch_from_markdown
 
 
-def ask_to_run(logger: Logger, function: callable, *args) -> any:
+def ask_to_run(logger: Logger, function: callable, *args):
     """
     Asks the user if they would like to run a function.
     :param logger: The logger object.
@@ -26,7 +26,7 @@ def ask_to_run(logger: Logger, function: callable, *args) -> any:
     while run != "y" and run != "n":
         run = input(f"Run {function.__name__}? (y/n): ").lower()
         if run == "y":
-            return function(logger, *args)
+            return function(*args)
         elif run == "n":
             logger.info(f"Skipping {function.__name__}.")
             if function.__name__ == "module_page":
@@ -54,7 +54,7 @@ def interface(logger: Logger) -> None:
     """
 
     # Generate the main module page
-    module_data = ask_to_run(logger, run_until_satisfied, logger, module_page, logger)
+    module_data = ask_to_run(logger, run_until_satisfied, logger, module_page(logger))
 
     # Generate the class pages
     classes = ClassGenerator(logger, module_data)
@@ -62,7 +62,7 @@ def interface(logger: Logger) -> None:
     ask_to_run(logger, classes.generate_all, "tutorial")
 
     # Genearte the summary pages
-    ask_to_run(summaries, logger, module_data)
+    ask_to_run(logger, summaries, logger, module_data)
 
     # Generate the test papers
     ask_to_run(logger, classes.generate_all, "paper")
