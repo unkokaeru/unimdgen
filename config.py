@@ -22,7 +22,9 @@ UNI_DOMAIN = "lincoln.ac.uk"
 
 # Path Configuration
 SCRIPT_PATH = "C:/Users/wills/Documents/GitHub/module-generation/"
-MODULE_FOLDER = "MTH1005 Probability and Statistics"
+MODULE_FOLDER = input(
+    "Enter the module folder name: "
+)  # Bad practice but easier for now
 
 INPUT_PATH = f"{SCRIPT_PATH}input/{MODULE_FOLDER}/"
 OUTPUT_PATH = f"{SCRIPT_PATH}output/{MODULE_FOLDER}/"
