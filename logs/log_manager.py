@@ -34,10 +34,6 @@ def get_logger() -> Logger:
     )
 
     # Make logging rich
-    logger = getLogger("rich")
-
-    # Get the http.client logger and add the NoPostFilter to it
-    http_client_logger = getLogger("http.client")
-    http_client_logger.addFilter(NoPostFilter())
+    logger = getLogger("rich").addFilter(NoPostFilter())
 
     return logger
