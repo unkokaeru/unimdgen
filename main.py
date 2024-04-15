@@ -53,6 +53,8 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         get_logger().info("Program terminated by user.")
+        os.remove("logs/inputs.txt")
+        os.remove("logs/tokens.txt")
     except Exception as e:
         get_logger().exception(e)
         raise
