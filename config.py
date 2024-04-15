@@ -1,4 +1,4 @@
-"""Configuration file"""
+"""config.py: The configuration file for the module generation script."""
 
 from rich.logging import RichHandler
 

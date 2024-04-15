@@ -1,4 +1,4 @@
-"""Utility module."""
+"""utils.py: A collection of utility functions for the application."""
 
 import os
 import re

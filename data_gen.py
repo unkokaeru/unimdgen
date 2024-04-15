@@ -1,4 +1,4 @@
-"""Data generation module for the markdown generation."""
+"""data_gen.py: Data generation functions for the main module and the tutorial and practical classes."""
 
 import ast
 import os

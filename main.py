@@ -1,4 +1,4 @@
-"""The main module."""
+"""main.py: The main script for generating the module content documents."""
 
 import os
 import re
