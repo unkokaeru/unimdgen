@@ -22,6 +22,7 @@ class ClassGenerator:
         """
         self.logger = logger
         self.module_data = module_data
+        print(f"Module data IN CLASS: {module_data}")
         self.input_base_path = INPUT_PATH
         self.class_output_path = CLASSES_PATH
         self.paper_output_path = PAPERS_PATH
