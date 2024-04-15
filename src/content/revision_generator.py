@@ -6,6 +6,7 @@ from logging import Logger
 from processing.gpt_interaction import prompt_gpt
 from utilities.conversion_utilities import markdown_to_csv
 from utilities.file_utilities import generate_markdown
+from sudoku_generator import sudoku_gen
 
 from cli.self_validation import run_until_satisfied
 from config.paths import NOTES_PATH, REVISION_PATH
@@ -61,10 +62,12 @@ def revision_data_gen(logger: Logger, module_name: str) -> dict[str, str]:
 
     data = {
         "module_name": module_name,
-        "question_based_revision": None,
+        "question_based_revision": None, # TODO: No idea how to generate this yet
+        "sudoku_orig": None,
+        "sudoku_sol": None,
     }
 
-    # TODO: No idea how to generate this yet
+    data["sudoku_orig"], data["sudoku_sol"] = sudoku_gen()
 
     return data
 
