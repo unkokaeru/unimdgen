@@ -6,10 +6,10 @@
 
 ___
 
-{{ sudoku_orig }}
+![{{ sudoku_orig }}]
 
 ___
 
 ```spoiler-block
-{{ sudoku_sol }}
+![{{ sudoku_sol }}]
 ```
