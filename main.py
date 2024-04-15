@@ -8,15 +8,11 @@ from time import time
 
 from config import (
     CLASSES_PATH,
-    INPUT_COST,
     INPUT_PATH,
-    LOG_PATH,
-    OUTPUT_COST,
     OUTPUT_PATH,
     PAPERS_PATH,
     REVISION_PATH,
     SUMMARY_PATH,
-    TOKENS_PATH,
 )
 from data_gen import (
     class_data_gen,
@@ -28,7 +24,7 @@ from data_gen import (
     summaryquestions_data_gen,
     tests_data_gen,
 )
-from utils import currency_converter, generate_markdown, get_logger, run_until_satisfied
+from utils import calculate_stats, generate_markdown, get_logger, run_until_satisfied
 
 """
 Things to implement:
@@ -222,76 +218,23 @@ def main() -> None:
     :return: None
     """
 
-    # Initialise logger
+    # Initalise the script
     logger = get_logger()
-
-    # Change working directory
     os.chdir(Path(__file__).parent.parent)
-
-    # Start timer
     start_time = time()
 
-    # Generate main markdown file
+    # Generate the documents
     module_data = run_until_satisfied(logger, module_page, logger)
-
-    # Generate class markdown files
     classes = ClassGenerator(logger, module_data)
     classes.generate_all("practical")
     classes.generate_all("tutorial")
-
-    # Generate summary markdown files
     summaries(logger, module_data)
-
-    # Generate paper markdown files
     classes.generate_all("paper")
-
-    # Generate notes markdown files
     notes(logger, module_data["module_notes_outline"])
-
-    # Generate revision markdown files
     revision(logger, module_data)
 
-    # End timer
-    time_taken = time() - start_time
-    if time_taken < 60:
-        logger.info(f"Time taken: {time_taken:.2f} seconds")
-    elif time_taken < 3600:
-        logger.info(f"Time taken: {time_taken / 60:.2f} minutes")
-    elif time_taken < 86400:
-        logger.info(f"Time taken: {time_taken / 3600:.2f} hours")
-    else:
-        logger.info(f"Time taken: {time_taken / 86400:.2f} days")
-
-    # Calculate success percentage in input
-    with open(LOG_PATH, "r") as f:
-        log = f.read()
-
-    yes = log.count("yes")
-    no = log.count("no")
-
-    if yes + no != 0:
-        logger.info(f"Success percentage: {yes / (yes + no) * 100:.2f}%")
-
-    os.remove(LOG_PATH)
-
-    # Calculate cost to run
-    with open(TOKENS_PATH, "r") as f:
-        tokens = f.read()
-
-    lines = tokens.split("\n")
-
-    cost = 0
-
-    for line in lines:
-        line = line.split(", ")
-        try:
-            cost += int(line[0]) * INPUT_COST + int(line[1]) * OUTPUT_COST
-        except ValueError:
-            logger.warning("Encountered a line with unexpected format:", line)
-
-    os.remove(TOKENS_PATH)
-
-    logger.info(f"Cost to run: ${cost:.2f}, £{currency_converter(logger, cost, "USD", "GBP"):.2f}")
+    # Calculate the statistics of the document generation
+    calculate_stats(logger, time() - start_time)
 
 
 if __name__ == "__main__":
