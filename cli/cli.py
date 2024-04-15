@@ -14,7 +14,7 @@ from src.content.summary_generator import summaries
 from src.utilities.file_utilities import fetch_from_markdown
 
 
-def ask_to_run(logger: Logger, function: callable, *args) -> any | None:
+def ask_to_run(logger: Logger, function: callable, *args) -> any:
     """
     Asks the user if they would like to run a function.
     :param logger: The logger object.
