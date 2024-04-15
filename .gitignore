@@ -166,6 +166,8 @@ template_rendering/__pycache__/
 tests/__pycache__/
 utils/__pycache__/
 
-# old files
+# old files and logs
 archived_output/
 output/
+logs/inputs.txt
+logs/tokens.txt
