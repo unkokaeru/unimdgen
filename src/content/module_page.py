@@ -6,11 +6,10 @@ import re
 from logging import Logger
 from typing import cast
 
-from processing.gpt_interaction import prompt_gpt
-from utilities.conversion_utilities import name_to_email, pdf_to_text
-from utilities.file_utilities import generate_markdown
-
 from config.paths import HANDBOOK_PATH, OUTPUT_PATH, UNI_DOMAIN
+from src.processing.gpt_interaction import prompt_gpt
+from src.utilities.conversion_utilities import name_to_email, pdf_to_text
+from src.utilities.file_utilities import generate_markdown
 
 
 def module_data_gen(logger: Logger) -> dict[str, str]:

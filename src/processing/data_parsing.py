@@ -3,9 +3,8 @@
 import os
 from logging import Logger
 
-from utilities.conversion_utilities import currency_converter
-
 from config.paths import INPUT_COST, LOG_PATH, OUTPUT_COST, TOKENS_PATH
+from src.utilities.conversion_utilities import currency_converter
 
 
 def calculate_stats(logger: Logger, time_taken: float) -> None:

@@ -3,13 +3,12 @@
 import os
 from logging import Logger
 
-from processing.gpt_interaction import prompt_gpt
-from utilities.conversion_utilities import markdown_to_csv
-from utilities.file_utilities import generate_markdown
-from sudoku_generator import sudoku_gen
-
 from cli.self_validation import run_until_satisfied
 from config.paths import NOTES_PATH, REVISION_PATH
+from src.content.sudoku_generator import sudoku_gen
+from src.processing.gpt_interaction import prompt_gpt
+from src.utilities.conversion_utilities import markdown_to_csv
+from src.utilities.file_utilities import generate_markdown
 
 
 def flashcards_data_gen(logger: Logger) -> dict[str, str]:

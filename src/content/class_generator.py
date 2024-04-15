@@ -5,13 +5,12 @@ import os
 import re
 from logging import Logger
 
-from processing.gpt_interaction import prompt_gpt
-from utilities.conversion_utilities import pdf_to_text
-from utilities.file_utilities import generate_markdown
-from utilities.text_utilities import clean_latex
-
 from cli.self_validation import run_until_satisfied
 from config.paths import CLASSES_PATH, INPUT_PATH, PAPERS_PATH
+from src.processing.gpt_interaction import prompt_gpt
+from src.utilities.conversion_utilities import pdf_to_text
+from src.utilities.file_utilities import generate_markdown
+from src.utilities.text_utilities import clean_latex
 
 
 class ClassGenerator:
