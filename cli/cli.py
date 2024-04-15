@@ -29,7 +29,7 @@ def ask_to_run(logger: Logger, function: callable, *args):
             return function(*args)
         elif run == "n":
             logger.info(f"Skipping {function.__name__}.")
-            if function.__name__ == "module_page":
+            if function.__name__ == "module_gen":
                 return fetch_from_markdown(
                     logger,
                     f"{OUTPUT_PATH}{MODULE_FOLDER}.md",
