@@ -1,15 +1,9 @@
 """log_manager.py: A module for managing the application's logging."""
 
-from logging import Logger, basicConfig, getLogger, Filter
+from logging import Logger, basicConfig, getLogger
 from typing import Iterable, cast
 
 from config.logging import LOGGING_CONFIG
-
-
-class NoPostFilter(Filter):
-    def filter(self, record):
-        # Exclude POST requests logs from 'http.client'
-        return "POST" not in record.getMessage()
 
 
 def get_logger() -> Logger:
@@ -33,7 +27,7 @@ def get_logger() -> Logger:
         handlers=handlers,
     )
 
-    # Make logging rich
-    logger = getLogger("rich").addFilter(NoPostFilter())
+    # Get the logger
+    logger = getLogger("rich")
 
     return logger
