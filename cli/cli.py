@@ -2,7 +2,7 @@
 
 from logging import Logger
 
-from self_validation import run_until_satisfied
+from cli.self_validation import run_until_satisfied
 
 from config.constants import MODULE_FOLDER
 from config.paths import OUTPUT_PATH
