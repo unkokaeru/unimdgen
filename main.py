@@ -36,6 +36,8 @@ Things to implement:
 - Question-based revision note generation (cheat sheet).
 - Create predicted papers.
 - Include link description in prompt for note generation.
+- Optional document generation (e.g. only generate summaries), fetching from generated content
+    if former information is required for generation.
 
 Things to fix:
 - Code layout, file structure, and naming conventions.
