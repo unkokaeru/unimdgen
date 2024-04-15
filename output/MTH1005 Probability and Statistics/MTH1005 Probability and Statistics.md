@@ -4,8 +4,8 @@ Module Co-ordinator: Danilo Roccatano (droccatano@lincoln.ac.uk)
 
 ## Course Components
 
-- [ ] Midterm (20%)
-- [ ] Weekly assignments on BB (20%)
+- [ ] In-class Test (20%)
+- [ ] Four Weekly Assignments on BB (20%)
 - [ ] Final Exam (60%)
 
 *Current percentage (rounded up):* 0%
@@ -16,8 +16,7 @@ Module Co-ordinator: Danilo Roccatano (droccatano@lincoln.ac.uk)
 - [ ] Conditional probability; Bayes’ theorem; independent events
 - [ ] Discrete and continuous random variables; distribution function; density function
 - [ ] Expectation and variance
-- [ ] Covariance and correlation; conditional distributions and conditional expectation
-- [ ] Medians, quantiles and statistical tables
+- [ ] Covariance and correlation; conditional distributions and conditional expectation; Medians, quantiles and statistical tables
 - [ ] Binomial, Geometric, Poisson, Normal and Exponential distributions
 - [ ] Populations and samples, random sampling, probability models for data
 - [ ] Confidence intervals; single sample procedures for a Normal mean and variance, the population proportion
@@ -42,67 +41,66 @@ Optionally, you can take the most important flashcards from here and make them p
 
 #### 1.1 Basic Concepts
 
-- **[[Probability Spaces]]**: Framework for modeling random experiments and events.
-- **[[Combinatorial Probability]]**: Calculating probabilities through counting techniques.
+- **[[Probability Spaces]]**: Understanding the framework for modeling random experiments.
+- **[[Combinatorial Probability]]**: Utilizing counting techniques to calculate probabilities.
 
 #### 1.2 Conditional Probability and Independence
 
-- **[[Conditional Probability]]**: Probability of an event given another event has occurred.
-- **[[Bayes’ Theorem]]**: Formula to update probabilities based on new information.
+- **[[Conditional Probability]]**: Assessing the likelihood of an event given another event has occurred.
+- **[[Bayes' Theorem]]**: A formula to update probabilities based on new information.
 - **[[Independent Events]]**: Events that do not influence each other's probabilities.
 
 ### 2. Random Variables and Distributions
 
 #### 2.1 Discrete and Continuous Random Variables
 
-- **[[Discrete Random Variables]]**: Variables with countable outcomes.
-- **[[Continuous Random Variables]]**: Variables with outcomes in a continuous range.
-  
-#### 2.2 Distribution Functions and Density Functions
+- **[[Discrete Random Variables]]**: Variables that take on a countable number of distinct values.
+- **[[Continuous Random Variables]]**: Variables that can take on any value within a range.
 
-- **[[Distribution Function]]**: Function describing probabilities of a random variable.
-- **[[Density Function]]**: Function representing probability density for continuous variables.
+#### 2.2 Distribution Functions
 
-#### 2.3 Expectation and Variance
+- **[[Distribution Function]]**: Describing the probabilities of a random variable taking on specific values.
+- **[[Density Function]]**: Describing the likelihood of a continuous random variable falling within a particular range.
 
-- **[[Expectation]]**: Average value of a random variable.
-- **[[Variance]]**: Measure of the spread of values around the mean.
+### 3. Measures of Central Tendency and Dispersion
 
-#### 2.4 Covariance, Correlation, and Conditional Distributions
+#### 3.1 Expectation and Variance
 
-- **[[Covariance and Correlation]]**: Measures of relationship between random variables.
-- **[[Conditional Distributions]]**: Distributions of one random variable given the values of another.
+- **[[Expectation]]**: The average value a random variable is expected to take.
+- **[[Variance]]**: A measure of the spread of values around the mean.
 
-### 3. Probability Distributions
+#### 3.2 Covariance and Correlation
 
-#### 3.1 Common Distributions
+- **[[Covariance]]**: Assessing how two random variables change together.
+- **[[Correlation]]**: Measuring the strength and direction of a linear relationship between two variables.
 
-- **[[Binomial Distribution]]**: Distribution of the number of successes in a fixed number of trials.
-- **[[Geometric Distribution]]**: Distribution of the number of trials until the first success.
-- **[[Poisson Distribution]]**: Distribution for the number of events occurring in a fixed interval.
-- **[[Normal Distribution]]**: Bell-shaped distribution with a defined mean and variance.
-- **[[Exponential Distribution]]**: Distribution modeling time between events in a Poisson process.
+#### 3.3 Other Statistical Measures
 
-### 4. Sampling and Inference
+- **[[Medians and Quantiles]]**: Descriptive statistics for central tendency and distribution.
+- **[[Statistical Tables]]**: References for critical values and distributions in statistical analysis.
 
-#### 4.1 Sampling Techniques
+### 4. Common Probability Distributions
 
-- **[[Populations and Samples]]**: Definitions and distinctions between the two.
-- **[[Random Sampling]]**: Sampling technique to ensure each element has an equal chance of selection.
-- **[[Probability Models for Data]]**: Models used to describe data patterns.
+- **[[Binomial Distribution]]**: Modeling the number of successes in a fixed number of trials.
+- **[[Geometric Distribution]]**: Describing the number of trials until the first success.
+- **[[Poisson Distribution]]**: Modeling the number of events occurring in a fixed interval of time or space.
+- **[[Normal Distribution]]**: Symmetric distribution often used in statistical inference.
+- **[[Exponential Distribution]]**: Modeling the time between events in a Poisson process.
 
-#### 4.2 Statistical Inference
+### 5. Sampling and Inference
 
-- **[[Confidence Intervals]]**: Range of values within which a population parameter is estimated to lie.
-- **[[Single Sample Procedures]]**: Methods for estimating population parameters from a single sample.
-  
-#### 4.3 Hypothesis Testing
+#### 5.1 Populations and Samples
 
-- **[[Introductory Ideas]]**: Basic concepts and steps in hypothesis testing.
+- **[[Random Sampling]]**: Techniques for selecting a representative subset of a population.
+- **[[Probability Models for Data]]**: Mathematical models to describe and analyze data.
 
-### 5. Markov Chains and Random Walks
+#### 5.2 Statistical Inference
 
-#### 5.1 Stochastic Processes
+- **[[Confidence Intervals]]**: Estimating population parameters with a range of values.
+- **[[Single Sample Procedures]]**: Statistical methods for analyzing a single sample.
+- **[[Hypothesis Testing]]**: Making inferences about population parameters based on sample data.
 
-- **[[Markov Chains]]**: Mathematical systems that transition between states with fixed probabilities.
-- **[[Random Walks]]**: Mathematical model describing a path that consists of a series of random steps.
+### 6. Markov Chains and Random Walks
+
+- **[[Markov Chains]]**: Stochastic processes where the future state depends only on the present state.
+- **[[Random Walks]]**: Modeling the path of a process where each step is random.

@@ -1,11 +1,8 @@
 """self_validation.py: A collection of utility functions for self-validation."""
 
-import os
 from logging import Logger
 from typing import Callable
 from winsound import Beep
-
-from gtts import gTTS
 
 from config.paths import LOG_PATH
 
@@ -30,10 +27,6 @@ def run_until_satisfied(logger: Logger, func: Callable, *args, **kwargs):
 
         # Ask the user if they are satisfied with the output.
         Beep(1000, 1000)  # Beep at 1000 Hz for 1000 ms
-        audio_obj = gTTS(text=result_display, lang="en", slow=False)
-        audio_obj.save("output.mp3")
-        os.system("start output.mp3")
-        os.remove("output.mp3")
 
         user_input = (
             input("Are you satisfied with the output? (yes/no): ").strip().lower()
