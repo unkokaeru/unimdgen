@@ -1,6 +1,6 @@
 """paths.py: File Paths Configuration File"""
 
-from constants import MODULE_FOLDER
+from config.constants import MODULE_FOLDER
 
 SCRIPT_PATH = "C:/Users/wills/Documents/GitHub/module-generation/"
 INPUT_PATH = f"{SCRIPT_PATH}input/{MODULE_FOLDER}/"
