@@ -165,3 +165,6 @@ data_retrieval/__pycache__/
 template_rendering/__pycache__/
 tests/__pycache__/
 utils/__pycache__/
+
+# old files
+archived_output/
