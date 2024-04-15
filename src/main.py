@@ -4,7 +4,6 @@ import os
 from pathlib import Path
 from time import time
 
-
 from processing.data_parsing import calculate_stats
 
 from cli.cli import interface
