@@ -5,7 +5,6 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
 from config.paths import TEMPLATES_PATH
-from src.processing.gpt_interaction import prompt_gpt
 
 
 def generate_markdown(
@@ -54,34 +53,3 @@ def generate_markdown(
     ) as file:
         file.write(rendered_content)
     logger.debug(f"Markdown file ({doc_title}.md) generated successfully.")
-
-
-def fetch_from_markdown(
-    logger: Logger, file_path: str, data: dict[str, str]
-) -> dict[str, str]:
-    """
-    Fetches data from a markdown file.
-    :param logger: The logger object.
-    :param file_path: The path to the markdown file.
-    :param data: The data to fetch from the markdown file.
-    :return: The fetched data.
-    """
-
-    logger.debug(f"Fetching data from markdown file ({file_path})...")
-
-    # Read the markdown file
-    with open(file_path, "r", encoding="utf-8") as file:
-        content = file.read()
-    logger.debug("Markdown file read successfully.")
-
-    # Fetch the data from the markdown file
-    for key in data:
-        if data[key] is None:
-            prompt_gpt(
-                logger,
-                content,
-                f"You are a program to fetch {key}. Provide only the data for {key} and nothing else.",
-            )
-    logger.debug("Data fetched successfully.")
-
-    return data

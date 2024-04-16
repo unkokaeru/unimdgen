@@ -6,7 +6,7 @@ import re
 from logging import Logger
 from typing import cast
 
-from config.constants import UNI_DOMAIN
+from config.constants import UNI_DOMAIN, MODULE_FOLDER
 from config.paths import HANDBOOK_PATH, OUTPUT_PATH
 from src.processing.gpt_interaction import prompt_gpt
 from src.utilities.conversion_utilities import name_to_email, pdf_to_text
@@ -102,7 +102,7 @@ Ensure that the final result is in the exact same format as above.
 
     # Return the data dictionary
     if gpt_response:
-        data["module_name"] = module_name
+        data["module_name"] = MODULE_FOLDER if None else module_name
         data["name"] = name
         data["email"] = email
         data["assessment_weighting_percentages"] = assessment_weighting_percentages

@@ -5,13 +5,11 @@ from logging import Logger
 from cli.self_validation import run_until_satisfied
 
 from config.constants import MODULE_FOLDER
-from config.paths import OUTPUT_PATH
 from src.content.class_generator import ClassGenerator
 from src.content.module_page import module_page
 from src.content.notes_generator import notes
 from src.content.revision_generator import revision
 from src.content.summary_generator import summaries
-from src.utilities.file_utilities import fetch_from_markdown
 
 
 def ask_to_run(logger: Logger, function: callable, *args):
@@ -30,18 +28,16 @@ def ask_to_run(logger: Logger, function: callable, *args):
         elif run == "n":
             logger.info(f"Skipping {function.__name__}.")
             if function.__name__ == "module_gen":
-                return fetch_from_markdown(
-                    logger,
-                    f"{OUTPUT_PATH}{MODULE_FOLDER}.md",
-                    {
-                        "module_name": None,
-                        "name": None,
-                        "email": None,
-                        "assessment_weighting_percentages": None,
-                        "learning_outcomes": None,
-                        "module_notes_outline": None,
-                    },
-                )
+                data = {
+                    "module_name": MODULE_FOLDER,
+                    "name": None,
+                    "email": None,
+                    "assessment_weighting_percentages": None,
+                    "learning_outcomes": None,
+                    "module_notes_outline": None,
+                }
+
+                return data
         else:
             logger.error("Invalid input. Please try again.")
 
