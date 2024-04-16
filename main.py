@@ -26,7 +26,7 @@ Things to fix:
 - Change Anki flashcard generation.
 - Refine summary notes prompt.
 - UK spelling.
-- Prompts into a new config.promps file.
+- Prompts into a new config.prompts file.
 """
 
 
