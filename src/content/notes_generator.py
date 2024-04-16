@@ -4,10 +4,28 @@ import re
 from logging import Logger
 
 from cli.self_validation import run_until_satisfied
-from config.paths import NOTES_PATH
+from config.constants import MODULE_FOLDER
+from config.paths import NOTES_PATH, OUTPUT_PATH
 from src.processing.gpt_interaction import prompt_gpt
 from src.utilities.file_utilities import generate_markdown
 from src.utilities.text_utilities import clean_latex
+
+
+def fetch_notes_outline(logger: Logger) -> str:
+    """
+    Fetch the notes outline.
+    :param logger: Logger object
+    :return: Notes outline
+    """
+
+    with open(f"{OUTPUT_PATH}{MODULE_FOLDER}.md", "r") as file:
+        content = file.read()
+
+    notes_outline = content.split("## Notes")[1]
+
+    logger.debug(f"Fetched notes outline: {notes_outline}")
+
+    return notes_outline
 
 
 def notes(logger: Logger, notes_outline: str) -> None:

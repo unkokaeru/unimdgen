@@ -7,7 +7,7 @@ from cli.self_validation import run_until_satisfied
 from config.constants import MODULE_FOLDER
 from src.content.class_generator import ClassGenerator
 from src.content.module_page import module_page
-from src.content.notes_generator import notes
+from src.content.notes_generator import notes, fetch_notes_outline
 from src.content.revision_generator import revision
 from src.content.summary_generator import summaries
 
@@ -34,7 +34,7 @@ def ask_to_run(logger: Logger, function: callable, *args):
                     "email": None,
                     "assessment_weighting_percentages": None,
                     "learning_outcomes": None,
-                    "module_notes_outline": None,
+                    "module_notes_outline": fetch_notes_outline(logger),
                 }
 
                 return data
