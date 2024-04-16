@@ -28,21 +28,19 @@ def run_until_satisfied(logger: Logger, func: Callable, *args, **kwargs):
         # Ask the user if they are satisfied with the output.
         Beep(1000, 1000)  # Beep at 1000 Hz for 1000 ms
 
-        user_input = (
-            input("Are you satisfied with the output? (yes/no): ").strip().lower()
-        )
+        user_input = input("Are you satisfied with the output? (y/n): ").strip().lower()
 
         # Log the user input in a text file.
         with open(LOG_PATH, "a") as file:
             file.write(user_input + "\n")
 
         # If the user is satisfied, break the loop and stop executing the function.
-        if user_input == "yes":
+        if user_input == "y":
             logger.info(
                 "Function execution stopped as you are satisfied with the output."
             )
             return result
-        elif user_input == "no":
+        elif user_input == "n":
             logger.info("Function will be run again.")
         else:
             logger.warning(

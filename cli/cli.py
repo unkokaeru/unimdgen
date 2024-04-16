@@ -22,7 +22,7 @@ def ask_to_run(logger: Logger, function: callable, *args):
 
     run = ""
     while run != "y" and run != "n":
-        run = input(f"Run {function.__name__}? (y/n): ").lower()
+        run = input(f"Run {function.__name__}? (y/n): ").strip().lower()
         if run == "y":
             return function(*args)
         elif run == "n":
