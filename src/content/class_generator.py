@@ -7,6 +7,7 @@ from logging import Logger
 
 from cli.self_validation import run_until_satisfied
 from config.paths import CLASSES_PATH, INPUT_PATH, PAPERS_PATH
+from config.prompts import CLASS_PROMPT, MISTAKE_PROMPT
 from src.processing.gpt_interaction import prompt_gpt
 from src.utilities.conversion_utilities import pdf_to_text
 from src.utilities.file_utilities import generate_markdown
@@ -90,13 +91,13 @@ def class_data_gen(logger: Logger, class_name: str, content_type: str) -> dict[s
     pdf_text = pdf_to_text(logger, file_path)
 
     # Prompt the ChatGPT API to convert the PDF text into a list of questions
-    gen_prompt = "You're a program that returns a Python List of the questions in a given PDF text, giving each question by itself and formatting each question with LaTeX where appropriate (equations, numbers, general mathematical notation, etc.), using things like \\frac and \\mathbb, surrounding all LaTeX with $ for inline equations and $$ for block equations. Return nothing else other than the Python List - if you cannot find any questions, return None. Each element of the Python List should be an entire question with its respesctive sub-questions."
+    gen_prompt = CLASS_PROMPT
     gpt_response = prompt_gpt(logger, pdf_text, gen_prompt)
 
     #logger.info(f"GPT response BEFORE: {gpt_response}")
 
     # Prompt the ChatGPT API to fix its own mistakes
-    mistake_prompt = "You're a program that takes a Python list of questions and fixes any mistakes in the formatting of the questions, such as improperly escaped characters (so escape them), incorrectly written LaTeX (so guess what it should be - as long as it works then it's okay), or unknown characters (replace them with known ones, or remove them). If parts of questions (e.g. 1a, 1b) are separate from their main part (e.g. 1), then combine them into one element. Return the fixed Python list of questions."
+    mistake_prompt = MISTAKE_PROMPT
     gpt_response = prompt_gpt(logger, gpt_response, mistake_prompt)
 
     #logger.info(f"GPT response MIDWAY: {gpt_response}")

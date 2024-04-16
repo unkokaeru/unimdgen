@@ -6,6 +6,7 @@ from logging import Logger
 
 from cli.self_validation import run_until_satisfied
 from config.paths import CLASSES_PATH, PAPERS_PATH, SUMMARY_PATH
+from config.prompts import SUMMARY_NOTES_PROMPT
 from src.processing.gpt_interaction import prompt_gpt
 from src.utilities.file_utilities import generate_markdown
 
@@ -97,7 +98,7 @@ def summarynotes_data_gen(logger: Logger) -> dict[str, str]:
     gpt_response = prompt_gpt(
         logger,
         content,
-        "You're a program that takes a list of questions and generates a detailed explanation of how to solve each type of question, including the steps, methods, and reasoning behind each step. Use a logical order and bullet points to quickly convey the information. Return the generated notes in markdown format, using LaTeX when appropriate (as in the questions given). Only return the bullet points and nothing else. If you cannot find any questions, return None.",
+        SUMMARY_NOTES_PROMPT,
     )
 
     # Clean the GPT response

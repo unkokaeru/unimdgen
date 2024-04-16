@@ -5,6 +5,7 @@ from logging import Logger
 
 from cli.self_validation import run_until_satisfied
 from config.paths import NOTES_PATH, REVISION_PATH
+from config.prompts import FLASHCARD_PROMPT
 from src.content.sudoku_generator import sudoku_gen
 from src.processing.gpt_interaction import prompt_gpt
 from src.utilities.conversion_utilities import markdown_to_csv
@@ -25,23 +26,11 @@ def flashcards_data_gen(logger: Logger) -> dict[str, str]:
 
     # Loop through each note markdown file and generate flashcards
     flashcards = """"""
-    card_format = """
-### Question
-
-QUESTION
-
-### Answer
-
-ANSWER
-
----
-
-"""
 
     for file in os.listdir(NOTES_PATH):
         with open(f"{NOTES_PATH}{file}", "r", encoding='utf-8') as f:
             content = f.read()
-            flashcard = prompt_gpt(logger, content, f"You're a program that takes a markdown note and generates a list of flashcards from it, each flashcard containing a question on one side and the answer on the other. Return the list of flashcards in the following format: {card_format}")
+            flashcard = prompt_gpt(logger, content, FLASHCARD_PROMPT)
             logger.info(f"Flashcard: {flashcard}")
             flashcards += flashcard
 

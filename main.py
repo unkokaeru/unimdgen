@@ -24,7 +24,6 @@ Things to fix:
 - Further GPT data generation cleaning, incl. UK spelling.
     (to increase success percentage, hence decrease generation time).
 - Refine summary notes prompt.
-- Prompts into a new config.prompts file.
 """
 
 
