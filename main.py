@@ -14,7 +14,6 @@ Things to implement:
     (by reading each lecture slides,
     tagging them with their content,
     then organising into the main contents).
-- GUI?
 - Question-based revision note generation (cheat sheet).
 - Create predicted papers.
 - Include link description in prompt for note generation.
