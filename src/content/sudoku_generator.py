@@ -5,7 +5,7 @@ import random
 import matplotlib.pyplot as plt
 import numpy as np
 
-from config.paths import OUTPUT_PATH
+from config.paths import REVISION_PATH
 
 
 class Sudoku:
@@ -143,7 +143,7 @@ def plot_sudoku(grid: np.ndarray, name: str) -> None:
 
     plt.axis("off")  # Hide axes
     plt.tight_layout()
-    plt.savefig(f"{OUTPUT_PATH}{name}.png", dpi=300)  # Save as PNG file
+    plt.savefig(f"{REVISION_PATH}{name}.png", dpi=300)  # Save as PNG file
 
     return name
 
