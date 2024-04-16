@@ -16,15 +16,14 @@ Things to implement:
     then organising into the main contents).
 - Question-based revision note generation (cheat sheet).
 - Create predicted papers.
+- Anki flashcard generation.
 - Include link description in prompt for note generation.
 
 Things to fix:
-- Documentation (update).
-- Further GPT data generation cleaning.
-- Flashcard tweaking & user checking.
-- Change Anki flashcard generation.
+- Update documentation.
+- Further GPT data generation cleaning, incl. UK spelling.
+    (to increase success percentage, hence decrease generation time).
 - Refine summary notes prompt.
-- UK spelling.
 - Prompts into a new config.prompts file.
 """
 
