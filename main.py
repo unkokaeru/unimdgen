@@ -21,6 +21,7 @@ Things to implement:
 
 Things to fix:
 - Update documentation.
+- Update comments, TODOs etc. throughout the code.
 - Further GPT data generation cleaning, incl. UK spelling.
     (to increase success percentage, hence decrease generation time).
 """
