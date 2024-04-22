@@ -5,13 +5,13 @@ import os
 import re
 from logging import Logger
 
-from src.cli.self_validation import run_until_satisfied
-from src.config.paths import CLASSES_PATH, INPUT_PATH, PAPERS_PATH
-from src.config.prompts import CLASS_PROMPT, MISTAKE_PROMPT
-from src.processing.gpt_interaction import prompt_gpt
-from src.utilities.conversion_utilities import pdf_to_text
-from src.utilities.file_utilities import generate_markdown
-from src.utilities.text_utilities import clean_latex
+from unimdgen.cli.self_validation import run_until_satisfied
+from unimdgen.config.paths import CLASSES_PATH, INPUT_PATH, PAPERS_PATH
+from unimdgen.config.prompts import CLASS_PROMPT, MISTAKE_PROMPT
+from unimdgen.processing.gpt_interaction import prompt_gpt
+from unimdgen.utilities.conversion_utilities import pdf_to_text
+from unimdgen.utilities.file_utilities import generate_markdown
+from unimdgen.utilities.text_utilities import clean_latex
 
 
 class ClassGenerator:

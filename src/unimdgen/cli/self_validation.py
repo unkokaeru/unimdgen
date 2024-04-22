@@ -4,7 +4,7 @@ from logging import Logger
 from typing import Callable
 from winsound import Beep
 
-from src.config.paths import LOG_PATH
+from unimdgen.config.paths import LOG_PATH
 
 
 def run_until_satisfied(logger: Logger, func: Callable, *args, **kwargs):

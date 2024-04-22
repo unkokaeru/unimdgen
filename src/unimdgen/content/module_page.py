@@ -6,12 +6,12 @@ import re
 from logging import Logger
 from typing import cast
 
-from src.config.constants import MODULE_FOLDER, UNI_DOMAIN
-from src.config.paths import HANDBOOK_PATH, OUTPUT_PATH
-from src.config.prompts import NOTES_OUTLINE_PROMPT
-from src.processing.gpt_interaction import prompt_gpt
-from src.utilities.conversion_utilities import name_to_email, pdf_to_text
-from src.utilities.file_utilities import generate_markdown
+from unimdgen.config.constants import MODULE_FOLDER, UNI_DOMAIN
+from unimdgen.config.paths import HANDBOOK_PATH, OUTPUT_PATH
+from unimdgen.config.prompts import NOTES_OUTLINE_PROMPT
+from unimdgen.processing.gpt_interaction import prompt_gpt
+from unimdgen.utilities.conversion_utilities import name_to_email, pdf_to_text
+from unimdgen.utilities.file_utilities import generate_markdown
 
 
 def module_data_gen(logger: Logger) -> dict[str, str]:

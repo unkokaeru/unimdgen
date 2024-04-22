@@ -4,9 +4,9 @@ import os
 from pathlib import Path
 from time import time
 
-from src.cli.cli import interface
-from src.utilities.log_manager import get_logger
-from src.processing.data_parsing import calculate_stats
+from unimdgen.cli.cli import interface
+from unimdgen.utilities.log_manager import get_logger
+from unimdgen.processing.data_parsing import calculate_stats
 
 """
 Things to implement:

@@ -3,9 +3,9 @@
 import os
 from logging import Logger
 
-from src.config.constants import INPUT_COST, OUTPUT_COST
-from src.config.paths import LOG_PATH, TOKENS_PATH
-from src.utilities.conversion_utilities import currency_converter
+from unimdgen.config.constants import INPUT_COST, OUTPUT_COST
+from unimdgen.config.paths import LOG_PATH, TOKENS_PATH
+from unimdgen.utilities.conversion_utilities import currency_converter
 
 
 def calculate_stats(logger: Logger, time_taken: float) -> None:

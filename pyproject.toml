@@ -5,6 +5,10 @@ description = "Generates markdown repositories for university mathematics module
 authors = ["William F <110934475+unkokaeru@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
+include = [
+    "LICENSE",
+    "templates/*",
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -12,18 +16,10 @@ fitz = "^0.0.1.dev2"
 Jinja2 = "^3.1.3"
 openai = "^1.23.2"
 
-[tool.poetry.packages]
-include = [
-    { include = "src", from = "src" },
-    { include = "cli", from = "cli" },
-    { include = "config", from = "config" },
-    { include = "logs", from = "logs" }
-]
-
-[tool.poetry.include]
-include = [
-    'templates/*.md',
-]
+[tool.poetry.dev-dependencies]
+black = "^23.3.0"
+mypy = "^1.2.0"
+ruff = "^0.0.262"
 
 [build-system]
 requires = ["poetry-core"]

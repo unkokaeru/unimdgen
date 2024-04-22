@@ -3,13 +3,13 @@
 import os
 from logging import Logger
 
-from src.cli.self_validation import run_until_satisfied
-from src.config.paths import NOTES_PATH, REVISION_PATH
-from src.config.prompts import FLASHCARD_PROMPT
-from src.content.sudoku_generator import sudoku_gen
-from src.processing.gpt_interaction import prompt_gpt
-from src.utilities.conversion_utilities import markdown_to_csv
-from src.utilities.file_utilities import generate_markdown
+from unimdgen.cli.self_validation import run_until_satisfied
+from unimdgen.config.paths import NOTES_PATH, REVISION_PATH
+from unimdgen.config.prompts import FLASHCARD_PROMPT
+from unimdgen.content.sudoku_generator import sudoku_gen
+from unimdgen.processing.gpt_interaction import prompt_gpt
+from unimdgen.utilities.conversion_utilities import markdown_to_csv
+from unimdgen.utilities.file_utilities import generate_markdown
 
 
 def flashcards_data_gen(logger: Logger) -> dict[str, str]:

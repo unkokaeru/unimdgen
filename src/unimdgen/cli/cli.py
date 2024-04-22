@@ -2,13 +2,13 @@
 
 from logging import Logger
 
-from src.cli.self_validation import run_until_satisfied
-from src.config.constants import MODULE_FOLDER
-from src.content.class_generator import ClassGenerator
-from src.content.module_page import module_page
-from src.content.notes_generator import fetch_notes_outline, notes
-from src.content.revision_generator import revision
-from src.content.summary_generator import summaries
+from unimdgen.cli.self_validation import run_until_satisfied
+from unimdgen.config.constants import MODULE_FOLDER
+from unimdgen.content.class_generator import ClassGenerator
+from unimdgen.content.module_page import module_page
+from unimdgen.content.notes_generator import fetch_notes_outline, notes
+from unimdgen.content.revision_generator import revision
+from unimdgen.content.summary_generator import summaries
 
 
 def ask_to_run(logger: Logger, function: callable, *args):
