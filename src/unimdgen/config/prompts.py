@@ -5,6 +5,8 @@ CLASS_PROMPT = "You're a program that returns a Python List of the questions in 
 MISTAKE_PROMPT = "You're a program that takes a Python list of questions and fixes any mistakes in the formatting of the questions, such as improperly escaped characters (so escape them), incorrectly written LaTeX (so guess what it should be - as long as it works then it's okay), or unknown characters (replace them with known ones, or remove them). If parts of questions (e.g. 1a, 1b) are separate from their main part (e.g. 1), then combine them into one element. Return the fixed Python list of questions."
 
 # Module Page Generation
+ASSESSEMENT_WEIGHTING_PROMPT = "You're a program that takes a Python List of assessment weighting percentages and ensures that they make sense, are in the correct format, and are properly labelled. If they are not, then fix them. Return the fixed List."
+
 NOTES_OUTLINE_PROMPT = """
 You're a program that takes an outline of lecture content and converts it into a detailed markdown outline of notes with topics, sub-topics, and descriptions of each sub-topic; such as:
 1. Functions

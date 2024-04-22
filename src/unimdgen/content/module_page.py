@@ -6,7 +6,11 @@ import re
 from logging import Logger
 
 from unimdgen.config.constants import MODULE_FOLDER, UNI_DOMAIN
-from unimdgen.config.paths import HANDBOOK_PATH, OUTPUT_PATH
+from unimdgen.config.paths import (
+    ASSESSMENT_WEIGHTING_PROMPT,
+    HANDBOOK_PATH,
+    OUTPUT_PATH,
+)
 from unimdgen.config.prompts import NOTES_OUTLINE_PROMPT
 from unimdgen.processing.gpt_interaction import prompt_gpt
 from unimdgen.utilities.conversion_utilities import name_to_email, pdf_to_text
@@ -60,7 +64,7 @@ def module_data_gen(logger: Logger) -> dict[str, str]:
 
     # Clean the assessment weighting percentages
     if assessment_weighting_percentages:
-        prompt_gpt(logger, assessment_weighting_percentages, "You're a program that takes a Python List of assessment weighting percentages and ensures that they make sense, are in the correct format, and are properly labelled. If they are not, then fix them. Return the fixed List.")
+        prompt_gpt(logger, assessment_weighting_percentages, ASSESSMENT_WEIGHTING_PROMPT)
 
     # Expand and detail the notes outline
     notes_outline_prompt = NOTES_OUTLINE_PROMPT if module_name else None
