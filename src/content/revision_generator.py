@@ -3,9 +3,9 @@
 import os
 from logging import Logger
 
-from cli.self_validation import run_until_satisfied
-from config.paths import NOTES_PATH, REVISION_PATH
-from config.prompts import FLASHCARD_PROMPT
+from src.cli.self_validation import run_until_satisfied
+from src.config.paths import NOTES_PATH, REVISION_PATH
+from src.config.prompts import FLASHCARD_PROMPT
 from src.content.sudoku_generator import sudoku_gen
 from src.processing.gpt_interaction import prompt_gpt
 from src.utilities.conversion_utilities import markdown_to_csv

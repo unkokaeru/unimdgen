@@ -4,9 +4,9 @@ import os
 import re
 from logging import Logger
 
-from cli.self_validation import run_until_satisfied
-from config.paths import CLASSES_PATH, PAPERS_PATH, SUMMARY_PATH
-from config.prompts import SUMMARY_NOTES_PROMPT
+from src.cli.self_validation import run_until_satisfied
+from src.config.paths import CLASSES_PATH, PAPERS_PATH, SUMMARY_PATH
+from src.config.prompts import SUMMARY_NOTES_PROMPT
 from src.processing.gpt_interaction import prompt_gpt
 from src.utilities.file_utilities import generate_markdown
 

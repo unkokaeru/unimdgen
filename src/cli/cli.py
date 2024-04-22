@@ -2,12 +2,11 @@
 
 from logging import Logger
 
-from cli.self_validation import run_until_satisfied
-
-from config.constants import MODULE_FOLDER
+from src.cli.self_validation import run_until_satisfied
+from src.config.constants import MODULE_FOLDER
 from src.content.class_generator import ClassGenerator
 from src.content.module_page import module_page
-from src.content.notes_generator import notes, fetch_notes_outline
+from src.content.notes_generator import fetch_notes_outline, notes
 from src.content.revision_generator import revision
 from src.content.summary_generator import summaries
 

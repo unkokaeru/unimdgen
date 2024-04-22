@@ -3,8 +3,8 @@
 import os
 from logging import Logger
 
-from config.constants import INPUT_COST, OUTPUT_COST
-from config.paths import LOG_PATH, TOKENS_PATH
+from src.config.constants import INPUT_COST, OUTPUT_COST
+from src.config.paths import LOG_PATH, TOKENS_PATH
 from src.utilities.conversion_utilities import currency_converter
 
 

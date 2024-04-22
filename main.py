@@ -4,8 +4,8 @@ import os
 from pathlib import Path
 from time import time
 
-from cli.cli import interface
-from logs.log_manager import get_logger
+from src.cli.cli import interface
+from src.utilities.log_manager import get_logger
 from src.processing.data_parsing import calculate_stats
 
 """

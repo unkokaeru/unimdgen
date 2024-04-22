@@ -3,7 +3,7 @@
 from logging import Logger, basicConfig, getLogger
 from typing import Iterable, cast
 
-from config.logging import LOGGING_CONFIG
+from src.config.logging import LOGGING_CONFIG
 
 
 def get_logger() -> Logger:

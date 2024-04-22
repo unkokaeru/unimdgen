@@ -5,7 +5,7 @@ import random
 import matplotlib.pyplot as plt
 import numpy as np
 
-from config.paths import REVISION_PATH
+from src.config.paths import REVISION_PATH
 
 
 class Sudoku:

@@ -3,7 +3,7 @@ name = "unimdgen"
 version = "0.6.1"
 description = "Generates markdown repositories for university mathematics modules based on raw material provided by the university."
 authors = ["William F <110934475+unkokaeru@users.noreply.github.com>"]
-license = "MIT License"
+license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -12,6 +12,18 @@ fitz = "^0.0.1.dev2"
 Jinja2 = "^3.1.3"
 openai = "^1.23.2"
 
+[tool.poetry.packages]
+include = [
+    { include = "src", from = "src" },
+    { include = "cli", from = "cli" },
+    { include = "config", from = "config" },
+    { include = "logs", from = "logs" }
+]
+
+[tool.poetry.include]
+include = [
+    'templates/*.md',
+]
 
 [build-system]
 requires = ["poetry-core"]

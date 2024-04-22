@@ -7,8 +7,8 @@ from logging import Logger
 import fitz
 import requests
 
-from config.api import EXCHANGE_API_KEY
-from config.paths import REVISION_PATH
+from src.config.api import EXCHANGE_API_KEY
+from src.config.paths import REVISION_PATH
 
 
 def currency_converter(

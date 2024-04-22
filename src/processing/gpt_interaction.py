@@ -6,7 +6,7 @@ from typing import cast
 
 from openai import OpenAI
 
-from config.paths import TOKENS_PATH
+from src.config.paths import TOKENS_PATH
 
 
 def prompt_gpt(

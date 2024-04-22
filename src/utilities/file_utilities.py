@@ -4,7 +4,7 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 
-from config.paths import TEMPLATES_PATH
+from src.config.paths import TEMPLATES_PATH
 
 
 def generate_markdown(

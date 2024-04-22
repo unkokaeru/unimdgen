@@ -3,10 +3,10 @@
 import re
 from logging import Logger
 
-from cli.self_validation import run_until_satisfied
-from config.constants import MODULE_FOLDER
-from config.paths import NOTES_PATH, OUTPUT_PATH
-from config.prompts import NOTE_PROMPT
+from src.cli.self_validation import run_until_satisfied
+from src.config.constants import MODULE_FOLDER
+from src.config.paths import NOTES_PATH, OUTPUT_PATH
+from src.config.prompts import NOTE_PROMPT
 from src.processing.gpt_interaction import prompt_gpt
 from src.utilities.file_utilities import generate_markdown
 from src.utilities.text_utilities import clean_latex
