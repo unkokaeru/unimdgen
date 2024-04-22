@@ -2,9 +2,8 @@
 
 import os
 from logging import Logger
-from typing import cast
 
-from openai import OpenAI
+from openai import OpenAI, OpenAIError
 
 from unimdgen.config.paths import TOKENS_PATH
 
@@ -46,7 +45,16 @@ def prompt_gpt(
                 f"{response.usage.prompt_tokens}, {response.usage.completion_tokens}\n"
             )
 
-        return cast(str, response.choices[0].message.content)
+        response_content = response["choices"][0]["message"]["content"]
+        if isinstance(response_content, str):
+            logger.debug(f"Response: {response_content}")
+            return response_content
+        else:
+            logger.error("Response is not a string.")
+            return ""
+    except OpenAIError as e:
+        logger.error(f"OpenAI API Error: {e}")
+        return "Error: Unable to process your request at the moment."
     except Exception as e:
-        logger.error(f"Error: {e}")
-        return "..."
+        logger.error(f"Unexpected error: {e}")
+        return "Error: An unexpected error occurred."

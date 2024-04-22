@@ -1,10 +1,9 @@
 """module_page.py: A module for generating the main module markdown file."""
 
-import ast
+import json
 import os
 import re
 from logging import Logger
-from typing import cast
 
 from unimdgen.config.constants import MODULE_FOLDER, UNI_DOMAIN
 from unimdgen.config.paths import HANDBOOK_PATH, OUTPUT_PATH
@@ -41,17 +40,13 @@ def module_data_gen(logger: Logger) -> dict[str, str]:
 
     # Prompt the ChatGPT API to find relevant information NOTE: Add manual mode? (if GPT fails)
     gpt_response = prompt_gpt(logger, pdf_text, "You're a program that returns a Python List (and nothing else) of the following (found in the given PDF text): module name, professor name, professor email, assessment weighting percentages List (labelled as [Title (x%)], where Title is in the title of the assessment), learning outcomes List, and module content outline List. If you cannot find any of these, return None in the List.")
-    gpt_response_list = cast(list[str], gpt_response)
 
     # Parse the GPT response
     try:
-        gpt_response_list = ast.literal_eval(gpt_response)
-    except ValueError as e:
+        gpt_response_list = json.loads(gpt_response)
+    except json.JSONDecodeError as e:
         logger.error(f"Error parsing GPT response: {e}")
         gpt_response_list = []
-    except SyntaxError as e:
-        logger.warning(f"Error parsing GPT response: {e}")
-        gpt_response_list = ast.literal_eval(gpt_response + "]")
 
     logger.debug(f"GPT response: {gpt_response_list}")
 
